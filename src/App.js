@@ -7,12 +7,11 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import themeFile from './util/theme';
 
 //components
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 
 //sayfalar
-import home from './pages/home';
 import menu from './pages/menu';
-import Wizard from './components/Wizard';
+import UserForm from './components/UserForm';
 
 const theme = createMuiTheme(themeFile);
 
@@ -21,12 +20,11 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <div className="App">
         <Router>
-          <Navbar />
+          {/* <Navbar /> */}
           <div className="container">
             <Switch>
-              <Route exact path="/" component={home} />
+              <Route exact path="/" component={UserForm} />
               <Route exact path="/menuler" component={menu} />
-              <Route exact path="/wizard" component={Wizard} />
             </Switch>
           </div>
         </Router>
