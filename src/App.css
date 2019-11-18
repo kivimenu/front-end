@@ -34,4 +34,12 @@ body{
   background: #fff;
   color: #35495e;
 }
+.photo-container {
+  margin: 10px;
+  position:relative;
+  animation: fadeUP .5s;
+}
+.photo-container img {
+  max-width: 100%;
+}
 

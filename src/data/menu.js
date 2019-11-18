@@ -3,7 +3,7 @@ const posts = [
       "id" : 1,
       "title" : "Sushi",
       "price":"50,99TL",
-      "image": "../img/paella.jpg",
+      "image": require("../img/paella.jpg"),
       "description": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like."
   },
   {
@@ -21,4 +21,6 @@ const posts = [
       "description": "This impressive paella is a perfect party dish and a fun meal to cook together with your guests. Add 1 cup of frozen peas along with the mussels, if you like."
   }
 ];
+
+
 export default posts;
