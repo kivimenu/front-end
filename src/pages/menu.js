@@ -94,6 +94,7 @@ class menu extends Component {
                         <Fab color="primary" aria-label="add" className={classes.fab}>
                           <PlusOneIcon fontSize="small" />
                         </Fab>
+                        <small>22</small>
                         <Fab color="secondary" aria-label="edit" className={classes.fab}>
                           <ExposureNeg1Icon fontSize="small" />
                         </Fab>
