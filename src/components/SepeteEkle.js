@@ -25,6 +25,11 @@ const useStyles = makeStyles(theme => ({
         marginLeft: theme.spacing(2),
         flex: 1,
     },
+    sepetEkle: {
+        position: 'fixed',
+        right: 11,
+        bottom: 13
+    }
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -44,12 +49,8 @@ export default function SepeteEkle() {
     };
 
     return (
-        <div className="sepetEkle">
-            {/* 
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Sepet
-      </Button> */}
-            <Fab aria-label="edit" className={classes.fab}>
+        <div>
+            <Fab aria-label="add" className={classes.sepetEkle}>
                 <ShoppingCartIcon color="secondary" fontSize="large" onClick={handleClickOpen} />
             </Fab>
             <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
