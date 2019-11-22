@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
-
+import SepeteEkle from '../components/SepeteEkle';
 //mui islevleri
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab'
@@ -105,6 +105,7 @@ class menu extends Component {
                 ))
               }
             </Card>
+            <SepeteEkle />
           </Grid>
       </div>
     );
