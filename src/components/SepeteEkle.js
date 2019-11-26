@@ -15,7 +15,12 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
+import PaymentIcon from '@material-ui/icons/Payment';
+import AddAlertIcon from '@material-ui/icons/AddAlert';
 import Slide from '@material-ui/core/Slide';
+
+//router
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
     appBar: {
@@ -29,7 +34,11 @@ const useStyles = makeStyles(theme => ({
         position: 'fixed',
         right: 11,
         bottom: 13
-    }
+    },
+    Veya: {
+        textAlign: 'center',
+        margin: 10
+    },
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -76,6 +85,19 @@ export default function SepeteEkle() {
                         <ListItemText primary="Default notification ringtone" secondary="Tethys" />
                     </ListItem>
                 </List>
+                <Fab color="primary" variant="extended">
+                <Link to="odeme" style={{ textDecoration: 'none' }}>
+                    <PaymentIcon />
+                    Hemen Öde
+                </Link>    
+                </Fab>
+                <Typography variant="h6" className={classes.Veya}>
+                    Veya
+                    </Typography>
+                <Fab variant="extended">
+                    <AddAlertIcon />
+                    Tekrar Hatırlat
+                </Fab>
             </Dialog>
         </div>
     );
