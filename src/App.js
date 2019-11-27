@@ -11,6 +11,7 @@ import themeFile from './util/theme';
 
 //sayfalar
 import menu from './pages/menu';
+import Payment from './pages/Payment';
 import UserForm from './components/UserForm';
 
 const theme = createMuiTheme(themeFile);
@@ -25,6 +26,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={UserForm} />
               <Route exact path="/menuler" component={menu} />
+              <Route exact path="/odeme" component={Payment} />
             </Switch>
           </div>
         </Router>
