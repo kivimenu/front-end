@@ -39,6 +39,10 @@ const useStyles = makeStyles(theme => ({
         textAlign: 'center',
         margin: 10
     },
+    OdemeButton: {
+        marginLeft: '30%',
+        marginRight: '30%'
+    }
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -85,7 +89,7 @@ export default function SepeteEkle() {
                         <ListItemText primary="Default notification ringtone" secondary="Tethys" />
                     </ListItem>
                 </List>
-                <Fab color="primary" variant="extended">
+                <Fab color="primary" variant="extended" className={classes.OdemeButton}>
                 <Link to="odeme" style={{ textDecoration: 'none' }}>
                     <PaymentIcon />
                     Hemen Öde
@@ -94,7 +98,7 @@ export default function SepeteEkle() {
                 <Typography variant="h6" className={classes.Veya}>
                     Veya
                     </Typography>
-                <Fab variant="extended">
+                <Fab variant="extended" onClick={handleClose} className={classes.OdemeButton}>
                     <AddAlertIcon />
                     Tekrar Hatırlat
                 </Fab>
