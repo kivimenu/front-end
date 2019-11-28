@@ -13,16 +13,19 @@ import Typography from '@material-ui/core/Typography';
 import AddressForm from '../components/AdressForm';
 import PaymentForm from '../components/PaymentForm';
 import Review from '../components/Review';
+import Secure from '../img/secure.png'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="http://minusapp.org">
+        Minus App
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
+      <br />
+      <img src={Secure} width="30%" height="auto" alt="Secure MinusApp" />
     </Typography>
   );
 }
@@ -117,33 +120,34 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  Thank you for your order.
+                  Ödemeniz için teşekkür ederiz.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #2001539. We have emailed your order confirmation, and will
-                  send you an update when your order has shipped.
+                  Ödeme numaranız <Typography component="h1" variant="h4" color="primary">#2001539</Typography><br/>
+                  Ödeme onayınızı Telefon Numaranıza gönderdik ve her hangi bir sorun halinde Sipariş Numaranız ile sorunlarınızı bildirebilirsiniz.
                 </Typography>
+                <h3>Afiyet olsun... Menu Sayfasına gitmek için <Link href="/menuler">burayı tıklayın</Link></h3>
               </React.Fragment>
             ) : (
-              <React.Fragment>
-                {getStepContent(activeStep)}
-                <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Geri
+                <React.Fragment>
+                  {getStepContent(activeStep)}
+                  <div className={classes.buttons}>
+                    {activeStep !== 0 && (
+                      <Button onClick={handleBack} className={classes.button}>
+                        Geri
                     </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Ödeme yap' : 'Devam'}
-                  </Button>
-                </div>
-              </React.Fragment>
-            )}
+                    )}
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      className={classes.button}
+                    >
+                      {activeStep === steps.length - 1 ? 'Ödeme yap' : 'Devam'}
+                    </Button>
+                  </div>
+                </React.Fragment>
+              )}
           </React.Fragment>
         </Paper>
         <Copyright />
