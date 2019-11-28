@@ -9,7 +9,7 @@ export default function AddressForm() {
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Shipping address
+        Bilgileriniz
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
@@ -17,7 +17,7 @@ export default function AddressForm() {
             required
             id="firstName"
             name="firstName"
-            label="First name"
+            label="Adınızı Girin"
             fullWidth
             autoComplete="fname"
           />
@@ -27,22 +27,22 @@ export default function AddressForm() {
             required
             id="lastName"
             name="lastName"
-            label="Last name"
+            label="Soyadınızı Girin"
             fullWidth
             autoComplete="lname"
           />
         </Grid>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <TextField
             required
-            id="address1"
-            name="address1"
-            label="Address line 1"
+            id="email"
+            name="email"
+            label="Email Adresiniz"
             fullWidth
             autoComplete="billing address-line1"
           />
-        </Grid>
-        <Grid item xs={12}>
+        </Grid> */}
+        {/* <Grid item xs={12}>
           <TextField
             id="address2"
             name="address2"
@@ -63,31 +63,31 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField id="state" name="state" label="State/Province/Region" fullWidth />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="zip"
-            name="zip"
-            label="Zip / Postal code"
+            id="email"
+            name="email"
+            label="Email Adresiniz"
             fullWidth
-            autoComplete="billing postal-code"
+            autoComplete="billing email"
           />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
             required
-            id="country"
-            name="country"
-            label="Country"
+            id="phone"
+            name="phone"
+            label="Telefon Numaranız"
             fullWidth
-            autoComplete="billing country"
+            autoComplete="billing phone"
           />
         </Grid>
         <Grid item xs={12}>
           <FormControlLabel
             control={<Checkbox color="secondary" name="saveAddress" value="yes" />}
-            label="Use this address for payment details"
+            label="Ödeme için bu bilgileri kullanın."
           />
         </Grid>
       </Grid>
