@@ -1,4 +1,12 @@
 import React from 'react';
+import CardQR from '../components/CardQR';
+import AddressForm from '../components/AdressForm';
+import PaymentForm from '../components/PaymentForm';
+import Review from '../components/Review';
+import Secure from '../img/secure.png'
+
+
+//mui
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,10 +18,6 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
-import AddressForm from '../components/AdressForm';
-import PaymentForm from '../components/PaymentForm';
-import Review from '../components/Review';
-import Secure from '../img/secure.png'
 
 function Copyright() {
   return (
@@ -96,6 +100,7 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
+      <CardQR />
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
