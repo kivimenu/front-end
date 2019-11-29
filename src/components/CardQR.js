@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QR from '../img/qrkod.jpg'
+import QRs from './QRs';
 
 //mui
 import Button from '@material-ui/core/Button';
@@ -27,7 +27,8 @@ class CardQR extends Component {
               <br/>
               a. World Mobil uygulamasında Yapı Kredi Pay butonuna tıkladıktan sonra “QR Kod ile Ödeme”yi seçerek QR Kod okuyucuyu açın ve POS cihazında oluşan QR Kod’u okutun. PAY butonuna uzun basarak da QR Kod okuyucuyu açabilirsiniz.
               <br/>
-              <img src={QR} width="210" height="210" alt="QR KODU"></img>
+              <hr/>
+              <QRs/>
           </DialogContentText>
           </DialogContent>
           <DialogActions>
