@@ -108,7 +108,7 @@ QRs.propTypes = {
 
 export default function QRS() {
     const [open, setOpen] = React.useState(false);
-    const [selectedValue, setSelectedValue] = React.useState(['banka seçilmedi!']);
+    const [selectedValue, setSelectedValue] = React.useState('banka seçilmedi!');
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -120,13 +120,12 @@ export default function QRS() {
     };
 
     return (
-        <div>
-            <Typography variant="subtitle1">Seçilen Banka: {selectedValue}</Typography>
-            <br />
+        <React.Fragment>
+            <Typography variant="subtitle1" color="secondary">Seçilen Banka: {selectedValue}</Typography>
             <Button variant="outlined" color="primary" onClick={handleClickOpen}>
                 Bankanı seç
-      </Button>
+            </Button>
             <QRs selectedValue={selectedValue} open={open} onClose={handleClose} />
-        </div>
+        </React.Fragment>    
     );
 }
