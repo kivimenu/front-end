@@ -128,10 +128,18 @@ export default function Checkout() {
                   Ödemeniz için teşekkür ederiz.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Ödeme numaranız <Typography component="h1" variant="h4" color="primary">#2001539</Typography><br/>
+                  Ödeme numaranız <Typography component="h1" variant="h4" color="primary">#2001539</Typography><br />
                   Ödeme onayınızı Telefon Numaranıza gönderdik ve her hangi bir sorun halinde Sipariş Numaranız ile sorunlarınızı bildirebilirsiniz.
                 </Typography>
-                <h3>Afiyet olsun... Menu Sayfasına gitmek için <Link href="/menuler">burayı tıklayın</Link></h3>
+                <hr />
+                <Typography variant="button" display="block" gutterBottom>
+                 Afiyet olsun... Menu Sayfasına gitmek için
+                 <Link to="/menuler" style={{ textDecoration: 'none' }}>
+                    <Button variant="outlined" color="primary">
+                      Buraya Tıklayın
+                  </Button>
+                  </Link>
+                </Typography>
               </React.Fragment>
             ) : (
                 <React.Fragment>
