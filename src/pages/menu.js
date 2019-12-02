@@ -31,7 +31,9 @@ const styles = {
     marginTop: '30'
   },
   root: {
-    flexGrow: 1,
+    justifyContent: 'space-evenly',
+    gridGap: 10,
+    paddingLeft: 25
   },
   fab: {
     margin: 10,
@@ -69,7 +71,7 @@ class menu extends Component {
                 posts.map(post => (
                   <div key={post.id} align="start">
                     <CardActionArea>
-                      <CardMedia className={classes.media} title="Contemplative Reptile" image={require('../img/paella.jpg')}>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="http://lorempixel.com/345/194/">
                       </CardMedia>
                       <CardContent>
                         <Typography gutterBottom variant="h5" component="h2">
@@ -100,6 +102,50 @@ class menu extends Component {
                         </Fab>
                       </div>
                     </CardActions>
+                    <hr />
+                    <br />
+                  </div>
+                ))
+              }
+            </Card>
+            <SepeteEkle />
+            <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/af3ffa/000000.png?text=Minus+App">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon fontSize="small" />
+                      </Fab>
+                      <Fab  aria-label="edit" className={classes.fab}>
+                        <ImportContactsIcon fontSize="small" />
+                      </Fab>
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon fontSize="small" />
+                        </Fab>
+                        <small>22</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+                    <hr />
                     <br />
                   </div>
                 ))
