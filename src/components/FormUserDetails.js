@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-export class FormUserDetails extends Component {
+const styles = {
+  paperScrollPaper: {
+    padding: '11%',
+  },
+};
+
+class FormUserDetails extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -13,22 +20,22 @@ export class FormUserDetails extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    const { classes } = this.props;
     return (
-      <MuiThemeProvider >
-        <React.Fragment>
-          <Dialog 
-            open={true}
-            fullWidth={true}
-            maxWidth='sm'
-          >
-            <AppBar title="Enter User Details" />
+      <React.Fragment>
+        <Dialog
+          open={true}
+          maxWidth='md'
+          fullWidth={true}
+        >
+          <Paper className={classes.paperScrollPaper}>
             <TextField
               placeholder="Adınızı girin"
               label="Adınız"
               onChange={handleChange('firstName')}
               defaultValue={values.firstName}
               margin="normal"
-							fullWidth={true}
+              fullWidth={true}
             />
             <br />
             <TextField
@@ -37,7 +44,7 @@ export class FormUserDetails extends Component {
               onChange={handleChange('lastName')}
               defaultValue={values.lastName}
               margin="normal"
-							fullWidth={true}
+              fullWidth={true}
             />
             <br />
             <TextField
@@ -46,7 +53,7 @@ export class FormUserDetails extends Component {
               onChange={handleChange('email')}
               defaultValue={values.email}
               margin="normal"
-							fullWidth={true}
+              fullWidth={true}
             />
             <br />
             <TextField
@@ -55,19 +62,23 @@ export class FormUserDetails extends Component {
               onChange={handleChange('phone')}
               defaultValue={values.phone}
               margin="normal"
-							fullWidth={true}
+              fullWidth={true}
             />
-            <br />
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={this.continue}
-            >Devam</Button>
-          </Dialog>
-        </React.Fragment>
-      </MuiThemeProvider>
+          </Paper>
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={this.continue}
+            size="large"
+          >Devam</Button>
+        </Dialog>
+      </React.Fragment>
     );
   }
 }
 
-export default FormUserDetails;
+FormUserDetails.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(FormUserDetails);

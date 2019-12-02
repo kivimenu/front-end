@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
-import Dialog from '@material-ui/core/Dialog';
-import AppBar from '@material-ui/core/AppBar';
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import { Link } from 'react-router-dom';
+import Dialog from '@material-ui/core/Dialog';
+import Typography from '@material-ui/core/Typography';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Button from '@material-ui/core/Button';
+
+
+const styles = {
+  root: {
+    width: '100%',
+    maxWidth: 500,
+  },
+  paperScrollPaper: {
+    padding: '11%',
+  },
+  formButton: {
+    margin: '1%',
+  },
+};
+
 
 export class Success extends Component {
   continue = e => {
@@ -17,23 +37,48 @@ export class Success extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <MuiThemeProvider > 
-        <React.Fragment>
-        <Dialog 
+      <React.Fragment>
+        <div className={classes.root}>
+          <Dialog
             open={true}
+            maxWidth='md'
             fullWidth={true}
-            maxWidth='sm'
           >
-            <AppBar title="Success" />
-            <h1>Zaman ayırdığınız için teşekkürler</h1>
-            <p>Restoranımıza tekrar geldiğinizde bilgileriniz kayıt olmuş olacak</p>
-            <h3>Menu'ye geçip dilediğinizi seçin. geçmek için <Link to="/menuler">burayı tıklayın</Link></h3>
+            <Paper className={classes.paperScrollPaper}>
+              <Typography variant="h4" gutterBottom align="center">
+                Zaman ayırdığınız için teşekkürler
+              </Typography>
+              <hr />
+              <Typography variant="subtitle1" gutterBottom>
+                Restoranımıza tekrar geldiğinizde bilgileriniz Kayıt olmasını ister misiniz?
+              </Typography>
+              <FormControlLabel
+                value="end"
+                control={<Checkbox color="primary" />}
+                label="Onaylıyorum"
+                labelPlacement="end"
+              />
+              <hr />
+              <Typography variant="button" display="block" gutterBottom>
+                Menu'ye geçip dilediğinizi seçin. geçmek için
+                <Link to="/menuler" style={{ textDecoration: 'none' }}>
+                  <Button variant="outlined" color="secondary">
+                    Buraya Tıklayın
+                  </Button>
+                </Link>
+              </Typography>
+            </Paper>
           </Dialog>
-        </React.Fragment>
-      </MuiThemeProvider>
+        </div>
+      </React.Fragment>
     );
   }
 }
 
-export default Success;
+Success.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(Success);
