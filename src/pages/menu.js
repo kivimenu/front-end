@@ -23,7 +23,7 @@ import posts from '../data/menu.js';
 
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 355,
   },
   media: {
     height: 0,
@@ -33,7 +33,7 @@ const styles = {
   root: {
     justifyContent: 'space-evenly',
     gridGap: 10,
-    paddingLeft: 25
+    paddingLeft: 8
   },
   fab: {
     margin: 10,
