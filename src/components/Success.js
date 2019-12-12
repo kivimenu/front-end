@@ -21,6 +21,9 @@ const styles = {
   formButton: {
     margin: '1%',
   },
+  Onayliyorum: {
+    marginLeft: '45%',
+  },
 };
 
 
@@ -55,6 +58,7 @@ export class Success extends Component {
                 Restoranımıza tekrar geldiğinizde bilgileriniz Kayıt olmasını ister misiniz?
               </Typography>
               <FormControlLabel
+                className={classes.Onayliyorum}
                 value="end"
                 control={<Checkbox color="primary" />}
                 label="Onaylıyorum"

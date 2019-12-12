@@ -1,4 +1,5 @@
 import React from 'react';
+import TekrarHatirlat from '../components/TekrarHatirlat';
 
 //mui
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -16,8 +17,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import PaymentIcon from '@material-ui/icons/Payment';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
 import Slide from '@material-ui/core/Slide';
+
 
 //router
 import { Link } from 'react-router-dom';
@@ -90,18 +91,22 @@ export default function SepeteEkle() {
                     </ListItem>
                 </List>
                 <Fab color="primary" variant="extended" className={classes.OdemeButton}>
-                <Link to="odeme" style={{ textDecoration: 'none' }}>
-                    <PaymentIcon />
-                    Hemen Öde
-                </Link>    
+                    <Link to="odeme" style={{ textDecoration: 'none' }}>
+                        <PaymentIcon />
+                        Hemen Öde
+                </Link>
                 </Fab>
                 <Typography variant="h6" className={classes.Veya}>
                     Veya
-                    </Typography>
-                <Fab variant="extended" onClick={handleClose} className={classes.OdemeButton}>
+                </Typography>
+                {/* <Fab variant="extended" onClick={handleClose} className={classes.OdemeButton}>
                     <AddAlertIcon />
                     Tekrar Hatırlat
-                </Fab>
+                </Fab> */}
+                <div className={classes.Veya}>
+                <TekrarHatirlat />
+                </div>
+    
             </Dialog>
         </div>
     );

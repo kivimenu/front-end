@@ -35,7 +35,7 @@ class CardQR extends Component {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClose={this.handleClose} color="primary">
+            <Button onClick={this.handleClose} color="primary">
               Hayır, Diğer Yolu seçmek istiyorum
             </Button>
           </DialogActions>
