@@ -57,8 +57,17 @@ class menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: posts
+      posts: posts,
+      digit: 0
     };
+    this.onIncrement = this.onIncrement.bind(this);
+    this.onDecrement = this.onDecrement.bind(this);
+  }
+  onIncrement() {
+    this.setState({ digit: this.state.digit + 1 })
+  }
+  onDecrement() {
+    this.setState({ digit: this.state.digit - 1 })
   }
   render() {
     const { classes } = this.props;
@@ -66,93 +75,93 @@ class menu extends Component {
     return (
       <div className={classes.root}>
         <Grid container spacing={1} item xs={12} direction="row" justify="space-around" alignItems="center">
-            <Card className={classes.card}>
-              {
-                posts.map(post => (
-                  <div key={post.id} align="start">
-                    <CardActionArea>
-                      <CardMedia className={classes.media} title="Contemplative Reptile" image="http://lorempixel.com/345/194/">
-                      </CardMedia>
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {post.title}
-                        </Typography>
-                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
-                          {post.price}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {post.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
+          <Card className={classes.card}>
+            {
+              posts.map(post => (
+                <div key={post.id} align="start">
+                  <CardActionArea>
+                    <CardMedia className={classes.media} title="Contemplative Reptile" image="http://lorempixel.com/345/194/">
+                    </CardMedia>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {post.title}
+                      </Typography>
+                      <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                        {post.price}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        {post.description}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Fab color="primary" aria-label="add" className={classes.fab}>
+                      <AddShoppingCartIcon fontSize="small" />
+                    </Fab>
+                    <Fab aria-label="edit" className={classes.fab}>
+                      <ImportContactsIcon fontSize="small" />
+                    </Fab>
+                    <div className={classes.DecInc}>
                       <Fab color="primary" aria-label="add" className={classes.fab}>
-                        <AddShoppingCartIcon fontSize="small" />
+                        <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
                       </Fab>
-                      <Fab  aria-label="edit" className={classes.fab}>
-                        <ImportContactsIcon fontSize="small" />
+                      <small>{this.state.digit}</small>
+                      <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                        <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
                       </Fab>
-                      <div className={classes.DecInc}>
-                        <Fab color="primary" aria-label="add" className={classes.fab}>
-                          <PlusOneIcon fontSize="small" />
-                        </Fab>
-                        <small>22</small>
-                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
-                          <ExposureNeg1Icon fontSize="small" />
-                        </Fab>
-                      </div>
-                    </CardActions>
-                    <hr />
-                    <br />
-                  </div>
-                ))
-              }
-            </Card>
-            <SepeteEkle />
-            <Card className={classes.card}>
-              {
-                posts.map(post => (
-                  <div key={post.id} align="start">
-                    <CardActionArea>
-                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/af3ffa/000000.png?text=Minus+App">
-                      </CardMedia>
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="h2">
-                          {post.title}
-                        </Typography>
-                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
-                          {post.price}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                          {post.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                    <CardActions>
+                    </div>
+                  </CardActions>
+                  <hr />
+                  <br />
+                </div>
+              ))
+            }
+          </Card>
+          <SepeteEkle />
+          <Card className={classes.card}>
+            {
+              posts.map(post => (
+                <div key={post.id} align="start">
+                  <CardActionArea>
+                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/af3ffa/000000.png?text=Minus+App">
+                    </CardMedia>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        {post.title}
+                      </Typography>
+                      <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                        {post.price}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary" component="p">
+                        {post.description}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Fab color="primary" aria-label="add" className={classes.fab}>
+                      <AddShoppingCartIcon fontSize="small" />
+                    </Fab>
+                    <Fab aria-label="edit" className={classes.fab}>
+                      <ImportContactsIcon fontSize="small" />
+                    </Fab>
+                    <div className={classes.DecInc}>
                       <Fab color="primary" aria-label="add" className={classes.fab}>
-                        <AddShoppingCartIcon fontSize="small" />
+                        <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
                       </Fab>
-                      <Fab  aria-label="edit" className={classes.fab}>
-                        <ImportContactsIcon fontSize="small" />
+                      <small>{this.state.digit}</small>
+                      <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                        <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
                       </Fab>
-                      <div className={classes.DecInc}>
-                        <Fab color="primary" aria-label="add" className={classes.fab}>
-                          <PlusOneIcon fontSize="small" />
-                        </Fab>
-                        <small>22</small>
-                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
-                          <ExposureNeg1Icon fontSize="small" />
-                        </Fab>
-                      </div>
-                    </CardActions>
-                    <hr />
-                    <br />
-                  </div>
-                ))
-              }
-            </Card>
-            <SepeteEkle />
-          </Grid>
+                    </div>
+                  </CardActions>
+                  <hr />
+                  <br />
+                </div>
+              ))
+            }
+          </Card>
+          <SepeteEkle />
+        </Grid>
       </div>
     );
   }

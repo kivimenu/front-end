@@ -43,6 +43,9 @@ const useStyles = makeStyles(theme => ({
     OdemeButton: {
         marginLeft: '30%',
         marginRight: '30%'
+    },
+    gelenItems: {
+        flex: 'initial'
     }
 }));
 
@@ -82,12 +85,41 @@ export default function SepeteEkle() {
                     </Toolbar>
                 </AppBar>
                 <List>
-                    <ListItem button>
-                        <ListItemText primary="Phone ringtone" secondary="Titania" />
+                    <ListItem  button>
+                        <ListItemText primary="Sushi" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="12 TL" secondary="{ 12 } ADET"  className={classes.gelenItems} />
                     </ListItem>
                     <Divider />
                     <ListItem button>
-                        <ListItemText primary="Default notification ringtone" secondary="Tethys" />
+                        <ListItemText primary="Steak" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="50 TL" secondary="{ 1 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <ListItem  button>
+                        <ListItemText primary="Burger" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="30 TL" secondary="{ 2 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemText primary="Coke" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="7 TL" secondary="{ 2 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <ListItem  button>
+                        <ListItemText primary="Sushi" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="12 TL" secondary="{ 12 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemText primary="Steak" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="50 TL" secondary="{ 1 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <ListItem  button>
+                        <ListItemText primary="Burger" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="30 TL" secondary="{ 2 } ADET"  className={classes.gelenItems} />
+                    </ListItem>
+                    <Divider />
+                    <ListItem button>
+                        <ListItemText primary="Coke" secondary="[Yemek hakkında ufak bir bilgi]" />
+                        <ListItemText primary="7 TL" secondary="{ 2 } ADET"  className={classes.gelenItems} />
                     </ListItem>
                 </List>
                 <Fab color="primary" variant="extended" className={classes.OdemeButton}>
