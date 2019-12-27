@@ -15,7 +15,7 @@ import AddAlertIcon from '@material-ui/icons/AddAlert';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    display: 'flex',
+    display: 'grid',
     flexWrap: 'wrap',
   },
   formControl: {
@@ -48,20 +48,6 @@ function TekrarHatirlat() {
         <DialogTitle>Kaç dakika sonra Hatırlatılsın?</DialogTitle>
         <DialogContent>
           <form className={classes.container}>
-            <FormControl className={classes.formControl}>
-              <InputLabel htmlFor="demo-dialog-native">Seçiniz</InputLabel>
-              <Select
-                native
-                value={age}
-                onChange={handleChange}
-                input={<Input id="demo-dialog-native" />}
-              >
-                <option value="" />
-                <option value={10}>10 Dakika</option>
-                <option value={20}>20 Dakika</option>
-                <option value={30}>30 Dakika</option>
-              </Select>
-            </FormControl>
             <FormControl className={classes.formControl}>
               <InputLabel id="demo-dialog-select-label">Seçiniz</InputLabel>
               <Select

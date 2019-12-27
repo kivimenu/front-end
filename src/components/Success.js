@@ -24,6 +24,9 @@ const styles = {
   Onayliyorum: {
     marginLeft: '45%',
   },
+  CloseButton: {
+    marginLeft: 48
+  }
 };
 
 
@@ -68,7 +71,7 @@ export class Success extends Component {
               <Typography variant="button" display="block" gutterBottom>
                 Menu'ye geçip dilediğinizi seçin. geçmek için
                 <Link to="/menuler" style={{ textDecoration: 'none' }}>
-                  <Button variant="outlined" color="secondary">
+                  <Button className={classes.CloseButton}  variant="outlined" color="secondary">
                     Buraya Tıklayın
                   </Button>
                 </Link>
