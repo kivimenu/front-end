@@ -31,7 +31,7 @@ class CardQR extends Component {
               Alışveriş yaptığınız mağazada ödeme sırasında QR Kod ile ödeme yapacağınızı belirttikten sonra
               
               a. World Mobil uygulamasında Yapı Kredi Pay butonuna tıkladıktan sonra QR Kod ile Ödeme yi seçerek QR Kod okuyucuyu açın ve POS cihazında oluşan QR Kod’u okutun. PAY butonuna uzun basarak da QR Kod okuyucuyu açabilirsiniz.
-              <QRs />
+                <QRs />
             </DialogContentText>
           </DialogContent>
           <DialogActions>
