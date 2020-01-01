@@ -20,6 +20,7 @@ import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
 
 //data
 import posts from '../data/menu.js';
+import ApiHandler from '../data/apiHandler';
 
 const styles = {
   card: {
@@ -69,6 +70,11 @@ class menu extends Component {
   onDecrement() {
     this.setState({ digit: this.state.digit - 1 })
   }
+
+  async sepeteEkle() {
+      await ApiHandler.sepeteEkle();
+  }
+  
   render() {
     const { classes } = this.props;
     const { posts } = this.state;
@@ -96,7 +102,7 @@ class menu extends Component {
                   </CardActionArea>
                   <CardActions>
                     <Fab color="primary" aria-label="add" className={classes.fab}>
-                      <AddShoppingCartIcon fontSize="small" />
+                      <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
                     </Fab>
                     <Fab aria-label="edit" className={classes.fab}>
                       <ImportContactsIcon fontSize="small" />

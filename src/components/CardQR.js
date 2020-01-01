@@ -11,37 +11,43 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 class CardQR extends Component {
   state = {
-    open: false
+    open: false,
+    showElement: true
   };
-  handleClose = () => {
-    this.setState({ open: true })
+  handleClose = (event) => {
+    this.setState({ open: false, showElement: false });
   };
 
   render() {
-    return (
-      <React.Fragment>
-        <Dialog
-          open={true}
-          fullWidth={true}
-          maxWidth='sm'
-        >
-          <DialogTitle>QR Kodu ile Ödeme Yap</DialogTitle>
-          <DialogContent>
-            <DialogContentText>
-              Alışveriş yaptığınız mağazada ödeme sırasında QR Kod ile ödeme yapacağınızı belirttikten sonra
-              
-              a. World Mobil uygulamasında Yapı Kredi Pay butonuna tıkladıktan sonra QR Kod ile Ödeme yi seçerek QR Kod okuyucuyu açın ve POS cihazında oluşan QR Kod’u okutun. PAY butonuna uzun basarak da QR Kod okuyucuyu açabilirsiniz.
-                <QRs />
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
-              Hayır, Normal yoldan ödemek istiyorum.
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </React.Fragment>
-    );
+    if (this.state.showElement) {
+      return (
+        <React.Fragment>
+          <Dialog
+            open={true}
+            fullWidth={true}
+            maxWidth='sm'
+          >
+            <DialogTitle>QR Kodu ile Ödeme Yap</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Alışveriş yaptığınız mağazada ödeme sırasında QR Kod ile ödeme yapacağınızı belirttikten sonra
+
+                a. World Mobil uygulamasında Yapı Kredi Pay butonuna tıkladıktan sonra QR Kod ile Ödeme yi seçerek QR Kod okuyucuyu açın ve POS cihazında oluşan QR Kod’u okutun. PAY butonuna uzun basarak da QR Kod okuyucuyu açabilirsiniz.
+                  <QRs />
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Hayır, Normal yoldan ödemek istiyorum.
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </React.Fragment>
+      );
+    } else {
+      return "";
+    }
+
   }
 }
 

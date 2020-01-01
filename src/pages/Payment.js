@@ -1,5 +1,5 @@
 import React from 'react';
-// import CardQR from '../components/CardQR';
+import CardQR from '../components/CardQR';
 import AddressForm from '../components/AdressForm';
 import PaymentForm from '../components/PaymentForm';
 import Review from '../components/Review';
@@ -100,7 +100,7 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
-      {/* <CardQR /> */}
+      <CardQR />
       <CssBaseline />
       <AppBar position="absolute" color="default" className={classes.appBar}>
         <Toolbar>
