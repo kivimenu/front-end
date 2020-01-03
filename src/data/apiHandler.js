@@ -9,6 +9,24 @@ export default class ApiHandler {
         }
     }
 
+    static async kullaniciBilgi() {
+        let response = await fetch("http://localhost/api/api/sepet", {
+            method: "POST",
+            body: JSON.stringify({
+                Ad: "Minus",
+                Soyad: "App",
+                Email: "minusapp@hotmail.com",
+                Telefon: 5458798711
+            })
+        });
+        let data = await response.json();
+        if (response.status) {
+            return data;
+        } else {
+            return null;
+        }
+    }
+
     static async sepettenCikar() {
         let response = await fetch("http://localhost/api/api/sepet", {
             method: "POST",

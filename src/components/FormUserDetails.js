@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Dialog from '@material-ui/core/Dialog';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import ApiHandler from '../data/apiHandler';
 
 const styles = {
   paperScrollPaper: {
@@ -17,7 +18,10 @@ class FormUserDetails extends Component {
     e.preventDefault();
     this.props.nextStep();
   };
-
+  
+  async kullaniciBilgi() {
+    await ApiHandler.kullaniciBilgi();
+  }
   render() {
     const { values, handleChange } = this.props;
     const { classes } = this.props;
@@ -71,6 +75,12 @@ class FormUserDetails extends Component {
             onClick={this.continue}
             size="large"
           >Devam</Button>
+          <Button
+            color="primary"
+            variant="outlined"
+            onClick={this.kullaniciBilgi}
+            size="large"
+          >Kullanıcı Bilgi Test</Button>
         </Dialog>
       </React.Fragment>
     );
