@@ -12,6 +12,9 @@ export default class ApiHandler {
     static async kullaniciBilgi() {
         let response = await fetch("http://localhost/api/api/sepet", {
             method: "POST",
+            headers:{
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({
                 Ad: "Minus",
                 Soyad: "App",
