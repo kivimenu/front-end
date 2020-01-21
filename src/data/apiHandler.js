@@ -1,6 +1,6 @@
 export default class ApiHandler {
     static async sepeteEkle() {
-        let response = await fetch("http://localhost/api/api/sepet?id=" + 4);
+        let response = await fetch("http://localhost/api4/api/sepet?id=" + 4);
         let data = await response.json();
         if (response.status) {
             return data;
@@ -10,7 +10,7 @@ export default class ApiHandler {
     }
 
     static async kullaniciBilgi() {
-        let response = await fetch("http://localhost/api/api/sepet", {
+        let response = await fetch("http://localhost/api4/api/sepet", {
             method: "POST",
             headers:{
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ export default class ApiHandler {
     }
 
     static async sepettenCikar() {
-        let response = await fetch("http://localhost/api/api/sepet", {
+        let response = await fetch("http://localhost/api4/api/sepet", {
             method: "POST",
             body: JSON.stringify({
                 urunIsim: "Nike",
