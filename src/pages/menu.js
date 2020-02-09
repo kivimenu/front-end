@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
 import SepeteEkle from '../components/SepeteEkle';
+import Ekmalzeme from '../components/Ekmalzeme';
+
 //mui islevleri
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab'
@@ -86,7 +88,7 @@ class menu extends Component {
               posts.map(post => (
                 <div key={post.id} align="start">
                   <CardActionArea>
-                    <CardMedia className={classes.media} title="Contemplative Reptile" image="http://lorempixel.com/345/194/">
+                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
                     </CardMedia>
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
@@ -105,7 +107,7 @@ class menu extends Component {
                       <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
                     </Fab>
                     <Fab aria-label="edit" className={classes.fab}>
-                      <ImportContactsIcon fontSize="small" />
+                      <Ekmalzeme/>
                     </Fab>
                     <div className={classes.DecInc}>
                       <Fab color="primary" aria-label="add" className={classes.fab}>
@@ -129,7 +131,7 @@ class menu extends Component {
               posts.map(post => (
                 <div key={post.id} align="start">
                   <CardActionArea>
-                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/af3ffa/000000.png?text=Minus+App">
+                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
                     </CardMedia>
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">

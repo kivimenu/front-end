@@ -19,7 +19,6 @@ import CloseIcon from '@material-ui/icons/Close';
 import PaymentIcon from '@material-ui/icons/Payment';
 import Slide from '@material-ui/core/Slide';
 
-
 //router
 import { Link } from 'react-router-dom';
 
@@ -36,13 +35,9 @@ const useStyles = makeStyles(theme => ({
         right: 11,
         bottom: 13
     },
-    Veya: {
-        textAlign: 'center',
-        margin: 10
-    },
     OdemeButton: {
-        marginLeft: '30%',
-        marginRight: '30%'
+        marginLeft: '56%',
+        marginRight: '5%'
     },
     gelenItems: {
         flex: 'initial'
@@ -122,23 +117,23 @@ export default function SepeteEkle() {
                         <ListItemText primary="7 TL" secondary="{ 2 } ADET"  className={classes.gelenItems} />
                     </ListItem>
                 </List>
-                <Fab color="primary" variant="extended" className={classes.OdemeButton}>
+                {/* <Fab color="primary" variant="extended" className={classes.OdemeButton}>
                     <Link to="odeme" style={{ textDecoration: 'none' }}>
                         <PaymentIcon />
                         Hemen Öde
-                </Link>
-                </Fab>
-                <Typography variant="h6" className={classes.Veya}>
-                    Veya
-                </Typography>
+                    </Link>
+                </Fab> */}
+                <Button variant="contained"  color="primary" className={classes.OdemeButton}>
+                <Link to="odeme" style={{ textDecoration: 'none' }}>
+                        <PaymentIcon />
+                        Hemen Öde
+                    </Link>
+                </Button>
                 {/* <Fab variant="extended" onClick={handleClose} className={classes.OdemeButton}>
                     <AddAlertIcon />
                     Tekrar Hatırlat
                 </Fab> */}
-                <div className={classes.Veya}>
                 <TekrarHatirlat />
-                </div>
-    
             </Dialog>
         </div>
     );

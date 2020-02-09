@@ -18,6 +18,10 @@ const useStyles = makeStyles(theme => ({
     display: 'grid',
     flexWrap: 'wrap',
   },
+  OdemeButton: {
+    marginLeft: '5%',
+    marginRight: '56%'
+  },
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
@@ -43,7 +47,9 @@ function TekrarHatirlat() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}><AddAlertIcon/>Tekrar Hatırlat</Button>
+      <Button variant="contained"  color="primary" className={classes.OdemeButton} onClick={handleClickOpen}>
+        <AddAlertIcon/>Tekrar Hatırlat
+      </Button>
       <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
         <DialogTitle>Kaç dakika sonra Hatırlatılsın?</DialogTitle>
         <DialogContent>
