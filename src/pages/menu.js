@@ -106,9 +106,10 @@ class menu extends Component {
                     <Fab color="primary" aria-label="add" className={classes.fab}>
                       <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
                     </Fab>
-                    <Fab aria-label="edit" className={classes.fab}>
-                      <Ekmalzeme/>
-                    </Fab>
+                    {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                    <Ekmalzeme />
                     <div className={classes.DecInc}>
                       <Fab color="primary" aria-label="add" className={classes.fab}>
                         <PlusOneIcon onClick={this.onIncrement} fontSize="small" />

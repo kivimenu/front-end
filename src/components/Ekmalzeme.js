@@ -31,6 +31,7 @@ export default function Ekmalzeme() {
         <MenuItem onClick={handleClose}>Somon Balık</MenuItem>
         <MenuItem onClick={handleClose}>Soya sosu</MenuItem>
         <MenuItem onClick={handleClose}>Dinlendirilmiş ve kurutulmuş yosun</MenuItem>
+        <MenuItem onClick={handleClose}><small>KAPAT</small></MenuItem>
       </Menu>
     </div>
   );
