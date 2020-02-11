@@ -26,7 +26,7 @@ import ApiHandler from '../data/apiHandler';
 
 const styles = {
   card: {
-    maxWidth: 355,
+    maxWidth: 355
   },
   media: {
     height: 0,
