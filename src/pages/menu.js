@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import SepeteEkle from '../components/SepeteEkle';
 import Ekmalzeme from '../components/Ekmalzeme';
 
+//react-id-swiper
+import Swiper from 'react-id-swiper';
+
 //mui islevleri
 import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab'
@@ -15,7 +18,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import ImportContactsIcon from '@material-ui/icons/ImportContacts';
+// import ImportContactsIcon from '@material-ui/icons/ImportContacts';
 
 import PlusOneIcon from '@material-ui/icons/PlusOne';
 import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
@@ -74,102 +77,480 @@ class menu extends Component {
   }
 
   async sepeteEkle() {
-      await ApiHandler.sepeteEkle();
+    await ApiHandler.sepeteEkle();
   }
-  
+
   render() {
     const { classes } = this.props;
     const { posts } = this.state;
+    const params = {
+      slidesPerView: 5,
+      spaceBetween: 50,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 40
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 10
+        }
+      }
+    }
     return (
       <div className={classes.root}>
         <Grid container spacing={1} item xs={12} direction="row" justify="space-around" alignItems="center">
-          <Card className={classes.card}>
-            {
-              posts.map(post => (
-                <div key={post.id} align="start">
-                  <CardActionArea>
-                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
-                    </CardMedia>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {post.title}
-                      </Typography>
-                      <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
-                        {post.price}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary" component="p">
-                        {post.description}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions>
-                    <Fab color="primary" aria-label="add" className={classes.fab}>
-                      <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
-                    </Fab>
-                    {/* <Fab aria-label="edit" className={classes.fab}>
+          <h1>Yiyecekler</h1>
+          <Swiper {...params}>
+            <div>
+              <Card className={classes.card}>
+                {
+                  posts.map(post => (
+                    <div key={post.id} align="start">
+                      <CardActionArea>
+                        <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                        </CardMedia>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {post.title}
+                          </Typography>
+                          <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                            {post.price}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {post.description}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                        </Fab>
+                        {/* <Fab aria-label="edit" className={classes.fab}>
                       <Ekmalzeme />
                     </Fab> */}
-                    <Ekmalzeme />
-                    <div className={classes.DecInc}>
-                      <Fab color="primary" aria-label="add" className={classes.fab}>
-                        <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
-                      </Fab>
-                      <small>{this.state.digit}</small>
-                      <Fab color="secondary" aria-label="edit" className={classes.fab}>
-                        <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
-                      </Fab>
+                        <Ekmalzeme />
+                        <div className={classes.DecInc}>
+                          <Fab color="primary" aria-label="add" className={classes.fab}>
+                            <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                          </Fab>
+                          <small>{this.state.digit}</small>
+                          <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                            <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                          </Fab>
+                        </div>
+                      </CardActions>
+
                     </div>
-                  </CardActions>
-                  <hr />
-                  <br />
-                </div>
-              ))
-            }
-          </Card>
-          <SepeteEkle />
-          <Card className={classes.card}>
-            {
-              posts.map(post => (
-                <div key={post.id} align="start">
-                  <CardActionArea>
-                    <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
-                    </CardMedia>
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        {post.title}
-                      </Typography>
-                      <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
-                        {post.price}
-                      </Typography>
-                      <Typography variant="body2" color="textSecondary" component="p">
-                        {post.description}
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions>
-                    <Fab color="primary" aria-label="add" className={classes.fab}>
-                      <AddShoppingCartIcon fontSize="small" />
-                    </Fab>
-                    <Fab aria-label="edit" className={classes.fab}>
-                      <ImportContactsIcon fontSize="small" />
-                    </Fab>
-                    <div className={classes.DecInc}>
-                      <Fab color="primary" aria-label="add" className={classes.fab}>
-                        <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
-                      </Fab>
-                      <small>{this.state.digit}</small>
-                      <Fab color="secondary" aria-label="edit" className={classes.fab}>
-                        <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
-                      </Fab>
+                  ))
+                }
+              </Card>
+            </div>
+            <div>
+              <Card className={classes.card}>
+                {
+                  posts.map(post => (
+                    <div key={post.id} align="start">
+                      <CardActionArea>
+                        <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                        </CardMedia>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {post.title}
+                          </Typography>
+                          <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                            {post.price}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {post.description}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                        </Fab>
+                        {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                        <Ekmalzeme />
+                        <div className={classes.DecInc}>
+                          <Fab color="primary" aria-label="add" className={classes.fab}>
+                            <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                          </Fab>
+                          <small>{this.state.digit}</small>
+                          <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                            <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                          </Fab>
+                        </div>
+                      </CardActions>
+
                     </div>
-                  </CardActions>
-                  <hr />
-                  <br />
-                </div>
-              ))
-            }
-          </Card>
-          <SepeteEkle />
+                  ))
+                }
+              </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+          </Swiper>
+          <h1>Içecekler</h1>
+          <Swiper {...params}>
+            <div className={classes.backgroundTest}>
+              <Card className={classes.card}>
+                {
+                  posts.map(post => (
+                    <div key={post.id} align="start">
+                      <CardActionArea>
+                        <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                        </CardMedia>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {post.title}
+                          </Typography>
+                          <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                            {post.price}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {post.description}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                        </Fab>
+                        {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                        <Ekmalzeme />
+                        <div className={classes.DecInc}>
+                          <Fab color="primary" aria-label="add" className={classes.fab}>
+                            <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                          </Fab>
+                          <small>{this.state.digit}</small>
+                          <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                            <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                          </Fab>
+                        </div>
+                      </CardActions>
+
+                    </div>
+                  ))
+                }
+              </Card>
+            </div>
+            <div>
+              <Card className={classes.card}>
+                {
+                  posts.map(post => (
+                    <div key={post.id} align="start">
+                      <CardActionArea>
+                        <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                        </CardMedia>
+                        <CardContent>
+                          <Typography gutterBottom variant="h5" component="h2">
+                            {post.title}
+                          </Typography>
+                          <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                            {post.price}
+                          </Typography>
+                          <Typography variant="body2" color="textSecondary" component="p">
+                            {post.description}
+                          </Typography>
+                        </CardContent>
+                      </CardActionArea>
+                      <CardActions>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                        </Fab>
+                        {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                        <Ekmalzeme />
+                        <div className={classes.DecInc}>
+                          <Fab color="primary" aria-label="add" className={classes.fab}>
+                            <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                          </Fab>
+                          <small>{this.state.digit}</small>
+                          <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                            <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                          </Fab>
+                        </div>
+                      </CardActions>
+
+                    </div>
+                  ))
+                }
+              </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+            <div>         <Card className={classes.card}>
+              {
+                posts.map(post => (
+                  <div key={post.id} align="start">
+                    <CardActionArea>
+                      <CardMedia className={classes.media} title="Contemplative Reptile" image="https://dummyimage.com/345x194/3dcc82/000000.png&text=kivi+menu">
+                      </CardMedia>
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {post.title}
+                        </Typography>
+                        <Typography className={classes.PriceOfYemek} variant="h5" component="h3">
+                          {post.price}
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                          {post.description}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                    <CardActions>
+                      <Fab color="primary" aria-label="add" className={classes.fab}>
+                        <AddShoppingCartIcon onClick={this.sepeteEkle} fontSize="small" />
+                      </Fab>
+                      {/* <Fab aria-label="edit" className={classes.fab}>
+                      <Ekmalzeme />
+                    </Fab> */}
+                      <Ekmalzeme />
+                      <div className={classes.DecInc}>
+                        <Fab color="primary" aria-label="add" className={classes.fab}>
+                          <PlusOneIcon onClick={this.onIncrement} fontSize="small" />
+                        </Fab>
+                        <small>{this.state.digit}</small>
+                        <Fab color="secondary" aria-label="edit" className={classes.fab}>
+                          <ExposureNeg1Icon onClick={this.onDecrement} fontSize="small" />
+                        </Fab>
+                      </div>
+                    </CardActions>
+
+                  </div>
+                ))
+              }
+            </Card></div>
+            <SepeteEkle />
+          </Swiper>
+         
+
         </Grid>
       </div>
     );
