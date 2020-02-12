@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import PropTypes from 'prop-types';
-import SepeteEkle from '../components/SepeteEkle';
-import Ekmalzeme from '../components/Ekmalzeme';
+import SepeteEkle from './SepeteEkle';
+import Ekmalzeme from './Ekmalzeme';
 import '../slider/slider.scss';
 
 //mui islevleri
@@ -23,10 +23,7 @@ import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
 
 //data
 import posts from '../data/menu.js';
-import Icecek from '../components/Icecek';
-import Tatlilar from '../components/Tatlilar';
 import ApiHandler from '../data/apiHandler';
-
 
 const styles = {
   card: {
@@ -60,7 +57,7 @@ const styles = {
   }
 };
 
-class menu extends Component {
+class Icecek extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,7 +126,7 @@ class menu extends Component {
             }
           </Card> */}
           <SepeteEkle />
-          <h1 className="categ">Yiyecekler</h1>
+          <h1>Icecekler</h1>
           <div className="wrapper">
             <section id="section1">
               <a href="#section3" className="arrow__btn">‹</a>
@@ -759,13 +756,8 @@ class menu extends Component {
               <a href="#section1" className="arrow__btn">›</a>
             </section>
           </div>
-          <div className="wrapper">
-          <Icecek/>
-          </div>
-          
-          <div className="wrapper">
-          <Tatlilar/>
-          </div>
+
+
 
         </Grid>
       </div>
@@ -773,8 +765,8 @@ class menu extends Component {
   }
 }
 
-menu.propTypes = {
+Icecek.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(menu);
+export default withStyles(styles)(Icecek);
