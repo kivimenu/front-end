@@ -3,6 +3,7 @@ import '../App.css';
 import PropTypes from 'prop-types';
 import SepeteEkle from '../components/SepeteEkle';
 import Ekmalzeme from '../components/Ekmalzeme';
+import MenuNav from './menuNav';
 
 //react-id-swiper
 import Swiper from 'react-id-swiper';
@@ -115,6 +116,7 @@ class menu extends Component {
     }
     return (
       <div className={classes.root}>
+                  <MenuNav/>
         <Grid container spacing={1} item xs={12} direction="row" justify="space-around" alignItems="center">
           <h1>Yiyecekler</h1>
           <Swiper {...params}>
