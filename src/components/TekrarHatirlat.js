@@ -18,9 +18,9 @@ const useStyles = makeStyles(theme => ({
     display: 'grid',
     flexWrap: 'wrap',
   },
-  OdemeButton: {
-    marginLeft: '5%',
-    marginRight: '56%'
+  OdemeButton:{
+    margin: '3%',
+    marginLeft: '26%'
   },
   formControl: {
     margin: theme.spacing(1),
@@ -47,7 +47,7 @@ function TekrarHatirlat() {
 
   return (
     <div>
-      <Button variant="contained"  color="primary" className={classes.OdemeButton} onClick={handleClickOpen}>
+      <Button variant="contained"  color="primary" onClick={handleClickOpen} className={classes.OdemeButton}>
         <AddAlertIcon/>Tekrar Hatırlat
       </Button>
       <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>

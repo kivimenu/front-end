@@ -9,7 +9,8 @@ import MenuNav from './menuNav';
 import Swiper from 'react-id-swiper';
 
 //mui islevleri
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, createMuiTheme  } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 import Fab from '@material-ui/core/Fab'
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -27,6 +28,23 @@ import ExposureNeg1Icon from '@material-ui/icons/ExposureNeg1';
 //data
 import posts from '../data/menu.js';
 import ApiHandler from '../data/apiHandler';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3dcc82',
+      dark: '#f46b1b',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#ff2b2b',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
+});
 
 const styles = {
   card: {
@@ -115,6 +133,7 @@ class menu extends Component {
       }
     }
     return (
+      <ThemeProvider theme={theme}>
       <div className={classes.root}>
                   <MenuNav/>
         <Grid container spacing={1} item xs={12} direction="row" justify="space-around" alignItems="center">
@@ -555,6 +574,7 @@ class menu extends Component {
 
         </Grid>
       </div>
+      </ThemeProvider>
     );
   }
 }
