@@ -35,10 +35,6 @@ const useStyles = makeStyles(theme => ({
         right: 11,
         bottom: 13
     },
-    OdemeButton: {
-        marginLeft: '56%',
-        marginRight: '5%'
-    },
     gelenItems: {
         flex: 'initial'
     }
@@ -123,17 +119,17 @@ export default function SepeteEkle() {
                         Hemen Öde
                     </Link>
                 </Fab> */}
-                <Button variant="contained"  color="primary" className={classes.OdemeButton}>
+                <Button variant="contained"  color="primary">
                 <Link to="odeme" style={{ textDecoration: 'none' }}>
                         <PaymentIcon />
                         Hemen Öde
-                    </Link>
+                </Link>
                 </Button>
                 {/* <Fab variant="extended" onClick={handleClose} className={classes.OdemeButton}>
                     <AddAlertIcon />
                     Tekrar Hatırlat
                 </Fab> */}
-                <TekrarHatirlat />
+                <TekrarHatirlat  variant="contained"  color="primary"/>
             </Dialog>
         </div>
     );
