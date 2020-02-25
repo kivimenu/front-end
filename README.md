@@ -1,3 +1,1 @@
-## Available Scripts
-
-kivimenu front-end
+## kivimenu front-end
