@@ -71,7 +71,7 @@ export default function TemporaryDrawer() {
         color="primary"
         endIcon={<MenuIcon/>}
       >
-        Menu(Kısa Yol)
+        Tüm Menuler
       </Button>
       <Drawer anchor="bottom" open={state.bottom} onClose={toggleDrawer('bottom', false)}>
         {fullList('bottom')}
